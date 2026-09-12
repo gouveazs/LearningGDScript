@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://1ajy5lfrnjxi"]
+
+[ext_resource type="Script" uid="uid://coy6is1e110mi" path="res://scripts/Main.gd" id="1_main"]
+
+[node name="Main" type="Node" unique_id=1470161127]
+script = ExtResource("1_main")
+
+[node name="Title" type="Label" parent="." unique_id=1512883570]
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 900.0
+offset_bottom = 150.0
+theme_override_font_sizes/font_size = 28
+text = "LearningGDScript está rodando!
+Abra o painel Output para ver os exemplos."
