@@ -2,6 +2,8 @@
 
 Este roteiro parte de uma base em C++: você já conhece controle de fluxo, funções, vetores, classes, herança e algoritmos. O foco aqui não é reaprender programação; é aprender a pensar e escrever no estilo de GDScript antes de entrar com força no editor da Godot.
 
+> Este arquivo é o mapa resumido da trilha. Para estudar com explicações, exemplos e checklists, abra as [aulas separadas de cada dia](onboarding_gdscript/README.md).
+
 ## Objetivo
 
 Em cinco dias, criar uma simulação em texto do núcleo do nosso jogo: jogador, princesa, monstros, combate e waves. No fim, a lógica estará pronta para virar cenas, Nodes, sprites, colisores e UI na Godot.

@@ -11,6 +11,8 @@ Projeto de estudo para aprender GDScript antes de começar a desenvolver o jogo 
 
 A cena inicial imprime exemplos no painel **Output** da Godot. Os arquivos em `scripts/` são comentados para leitura junto do [onboarding.md](onboarding.md).
 
+Para estudar GDScript passo a passo, use as [aulas de cada dia](onboarding_gdscript/README.md).
+
 Depois de terminar a trilha de linguagem, siga o [onboarding do editor](onboarding_editor.md) para aprender a montar cenas, mapas 3D, iluminação, ambiente e navegação na Godot.
 
 ## Estrutura
