@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://dias/Dia1/SolucaoDesafio.gd" id="1_solution"]
+
+; Esta cena existe apenas para executar a solução com F6.
+[node name="SolucaoDesafio" type="Node"]
+script = ExtResource("1_solution")
