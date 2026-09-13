@@ -1,6 +1,8 @@
 # Onboarding do Editor Godot 4.7 — vindo da Unreal
 
-Este guia usa como referência a **Godot 4.7.2 stable** e os nomes da interface em português brasileiro. Ele é a segunda etapa do [onboarding.md](onboarding.md): primeiro você aprende GDScript; aqui aprende a transformar código e assets em uma fase jogável.
+Este guia usa como referência a **Godot 4.7.2 stable** — a versão instalada neste computador via Steam. Ele é a segunda etapa do [onboarding.md](onboarding.md): primeiro você aprende GDScript; aqui aprende a transformar código e assets em uma fase jogável.
+
+> **Importante para a interface em português:** a tradução da Godot é parcial. Textos da interface podem aparecer em português, inglês ou uma mistura dos dois, dependendo da versão, Steam e configuração regional. Os **tipos de Node, Resources e arquivos permanecem em inglês**: procure sempre `Node3D`, `DirectionalLight3D`, `WorldEnvironment`, `StaticBody3D` etc. Este guia põe os nomes que você deve pesquisar em `código` e, quando útil, a variação visual em português/inglês entre parênteses.
 
 > A equivalência mais importante: na Unreal você pensa em *Actors dentro de um Level*. Na Godot você pensa em *Nodes dentro de uma Scene*. Uma Scene pode ser um mapa inteiro, um jogador, uma arma, um inimigo ou uma UI — e pode ser instanciada dentro de outra Scene.
 
@@ -26,46 +28,46 @@ Este guia usa como referência a **Godot 4.7.2 stable** e os nomes da interface 
 
 ### Menus superiores
 
-- **Cena**: salva, instancia, altera dono e outras operações sobre a Scene aberta.
-- **Projeto**: configurações do projeto, Input Map, autoloads, exportação e ferramentas globais.
-- **Depurar**: controles de depuração, colisões/navegação visíveis e monitoramento durante teste.
-- **Editor**: configurações do editor, layout, atalhos, plugins e painéis encaixáveis.
-- **Ajuda**: documentação embutida e busca de classes (`F1`).
+- **Cena** (`Scene`): salva, instancia, altera dono e outras operações sobre a Scene aberta.
+- **Projeto** (`Project`): configurações do projeto, Input Map, autoloads, exportação e ferramentas globais.
+- **Depurar** (`Debug`): controles de depuração, colisões/navegação visíveis e monitoramento durante teste.
+- **Editor** (`Editor`): configurações do editor, layout, atalhos, plugins e painéis encaixáveis.
+- **Ajuda** (`Help`): documentação embutida e busca de classes (`F1`).
 
 ### As cinco áreas de trabalho centrais
 
-| Aba em português | Para que serve | Equivalente mental na Unreal |
+| Aba que você pode ver | Para que serve | Equivalente mental na Unreal |
 | --- | --- | --- |
 | **2D** | Cenas 2D e interfaces `Control`. | Viewport 2D/UMG. |
 | **3D** | Mapas, malhas, iluminação, câmera e Nodes 3D. | Level Viewport. |
 | **Script** | Editor de GDScript, documentação e depurador. | IDE/Blueprint editor, mas para código. |
-| **Jogo** | Exibe o jogo rodando dentro do editor. Alterações feitas enquanto roda não são salvas. | Play In Editor embutido. |
-| **Biblioteca de Recursos** | Add-ons, ferramentas e projetos da comunidade. | Marketplace, mas só conteúdo publicado ali e normalmente aberto. |
+| **Jogo** ou **Game** | Exibe o jogo rodando dentro do editor. Alterações feitas enquanto roda não são salvas. | Play In Editor embutido. |
+| **Biblioteca de Recursos**, **AssetLib** ou **Asset Library** | Add-ons, ferramentas e projetos da comunidade. | Marketplace, mas só conteúdo publicado ali e normalmente aberto. |
 
 ### Painéis laterais padrão
 
 **Esquerda**
 
-- **Cena**: árvore da Scene atual. É o seu World Outliner.
-- **Importar**: opções de importação do arquivo selecionado no Sistema de Arquivos. Use para ajustar uma textura, um FBX/glTF, áudio etc.; depois clique em **Reimportar**.
-- **Sistema de Arquivos**: arquivos do projeto. `res://` é a raiz; `user://` é armazenamento criado em tempo de execução e não aparece como conteúdo do projeto.
+- **Cena** (`Scene`): árvore da Scene atual. É o seu World Outliner.
+- **Importar** (`Import`): opções de importação do arquivo selecionado no Sistema de Arquivos. Use para ajustar uma textura, um FBX/glTF, áudio etc.; depois clique em **Reimportar**.
+- **Sistema de Arquivos** (`FileSystem`): arquivos do projeto. `res://` é a raiz; `user://` é armazenamento criado em tempo de execução e não aparece como conteúdo do projeto.
 
 **Direita**
 
-- **Inspetor**: propriedades do Node/Resource atual. É o painel que você mais usará.
-- **Nó**: sinais e grupos do Node selecionado. A aba **Sinais** é a ponte mais direta para Event Dispatchers; dê duplo clique em um sinal para conectar a um método de script.
-- **Histórico**: objetos e Resources visitados recentemente no Inspetor.
+- **Inspetor** (`Inspector`): propriedades do Node/Resource atual. É o painel que você mais usará.
+- **Nó** (`Node`): sinais e grupos do Node selecionado. A aba **Sinais** (`Signals`) é a ponte mais direta para Event Dispatchers; dê duplo clique em um sinal para conectar a um método de script.
+- **Histórico** (`History`): objetos e Resources visitados recentemente no Inspetor.
 
 ### Painel inferior
 
 Os botões visíveis mudam conforme a Scene, o Node selecionado e plugins ativos. Os mais comuns são:
 
-- **Saída**: `print()`, mensagens do editor e avisos simples.
-- **Depurador**: erros, breakpoints, pilha de chamadas, variáveis e monitores de desempenho.
-- **Áudio**: buses e mixer de áudio.
-- **Animação**: timeline do `AnimationPlayer`.
-- **Árvore de Animação**: edição do `AnimationTree`, quando ele está selecionado.
-- **Editor de Shader** / **Visual Shader**: aparece ao editar esses recursos.
+- **Saída** (`Output`): `print()`, mensagens do editor e avisos simples.
+- **Depurador** (`Debugger`): erros, breakpoints, pilha de chamadas, variáveis e monitores de desempenho.
+- **Áudio** (`Audio`): buses e mixer de áudio.
+- **Animação** (`Animation`): timeline do `AnimationPlayer`.
+- **Árvore de Animação** (`AnimationTree`): edição do `AnimationTree`, quando ele está selecionado.
+- **Editor de Shader** (`Shader Editor`) / **Visual Shader**: aparece ao editar esses recursos.
 - Painéis de recursos específicos, como TileSet, Navigation e outros, podem aparecer quando você seleciona o Node/Resource correspondente.
 
 > Não estranhe se sua tela não mostrar todos ao mesmo tempo. Na Godot, o editor revela ferramentas conforme o contexto; isso deixa a interface menor que a da Unreal.
@@ -76,10 +78,11 @@ Vamos montar um mapa mínimo para testar o futuro jogo de waves. O resultado ter
 
 ### 1. Crie e salve a cena do mapa
 
-1. Clique em **+** ao lado das abas de Scene ou use **Cena > Nova Cena**.
-2. Escolha **Outro Nó** e pesquise por `Node3D`.
-3. Renomeie o nó raiz para `Map_Test`.
-4. Salve em `scenes/maps/Map_Test.tscn`.
+1. Crie uma cena vazia pelo botão **+** na barra de abas de cenas (ou pelo menu **Cena/Scene**).
+2. No painel **Cena/Scene**, clique no botão **+** no canto superior esquerdo. Isso abre **Criar Novo Nó** (`Create New Node`). O atalho é `Ctrl + A`.
+3. Pesquise exatamente `Node3D`, selecione-o e clique em **Criar** (`Create`).
+4. Renomeie o nó raiz para `Map_Test`.
+5. Salve com `Ctrl + S` em `scenes/maps/Map_Test.tscn`. Crie as pastas na janela de salvar se elas ainda não existirem.
 
 `Node3D` não renderiza nada. Ele é o organizador espacial do mapa, equivalente a começar um Level vazio antes de colocar Actors.
 
@@ -105,7 +108,7 @@ Map_Test (Node3D)
 
 No começo, evite criar terreno bonito. Faça um espaço de jogo legível e testável.
 
-1. Adicione um filho `StaticBody3D` chamado `Ground`.
+1. Selecione `Map_Test`, aperte `Ctrl + A`, pesquise `StaticBody3D` e crie-o como filho. Renomeie para `Ground`.
 2. Dentro dele, adicione `MeshInstance3D`.
 3. No **Inspetor**, em **Mesh**, escolha **Novo BoxMesh**. Clique no BoxMesh criado e ajuste **Size** para algo como `(40, 1, 40)`.
 4. Em `Ground`, adicione `CollisionShape3D`.
@@ -118,7 +121,7 @@ Para prototipar paredes, rampas e plataformas, `CSGBox3D`, `CSGCylinder3D` e out
 
 ### 3. Coloque a câmera
 
-1. Adicione `Camera3D` como filho de `Map_Test`.
+1. Selecione `Map_Test`, aperte `Ctrl + A`, pesquise `Camera3D` e crie-o como filho.
 2. No Inspetor, marque **Current** se ela for a câmera ativa.
 3. Ajuste **Transform > Position** e **Transform > Rotation Degrees** até enxergar a arena.
 
@@ -126,7 +129,7 @@ Isso serve para ver o mapa. No jogo real, a câmera deverá ser filha do jogador
 
 ### 4. Sol: `DirectionalLight3D`
 
-1. Adicione `DirectionalLight3D` e chame de `Sun`.
+1. Selecione `Map_Test`, aperte `Ctrl + A`, pesquise `DirectionalLight3D`, crie-o como filho e chame-o de `Sun`.
 2. Rotacione-o — a posição não importa para esse tipo de luz; o que define o sol é a direção.
 3. No Inspetor, ajuste **Light > Energy**, **Light > Color** e habilite **Shadow > Enabled**.
 
@@ -151,8 +154,8 @@ WorldEnvironment (Node)
 
 Passo a passo:
 
-1. Adicione `WorldEnvironment` como filho de `Map_Test`.
-2. No Inspetor, em **Environment**, escolha **Novo Environment**.
+1. Selecione `Map_Test`, aperte `Ctrl + A`, pesquise `WorldEnvironment` e crie-o como filho.
+2. No **Inspetor/Inspector**, localize a propriedade `Environment`. Clique no campo vazio e escolha criar um Resource do tipo `Environment` (o menu pode mostrar **Novo Environment**, **New Environment** ou apenas uma lista de tipos).
 3. Clique no Resource criado para abrir as categorias de configuração.
 4. Em **Background**, escolha um modo de céu e crie um **Sky**.
 5. No Sky, escolha um material: **ProceduralSkyMaterial** para protótipo rápido, **PhysicalSkyMaterial** para iluminação mais física, ou **PanoramaSkyMaterial** para HDRI.
@@ -160,13 +163,13 @@ Passo a passo:
 
 `WorldEnvironment` vale para a Scene inteira e somente um deve estar ativo por árvore de cena. Para um mapa externo, comece por céu procedural, luz ambiente moderada, uma DirectionalLight3D e névoa leve. Para interior, reduza/controle o céu e ilumine com Point/Spot lights.
 
-> O sol e o ambiente de **visualização** da viewport ajudam você enquanto edita, mas não existem no jogo exportado. No menu de três pontos da viewport 3D, use **Add Sun to Scene** e **Add Environment to Scene** para transformar a prévia em Nodes reais.
+> O sol e o ambiente de **visualização** da viewport ajudam você enquanto edita, mas não existem no jogo exportado. Há um atalho visual no menu de três pontos da viewport 3D para adicioná-los, mas não dependa dele: criar manualmente `DirectionalLight3D` e `WorldEnvironment` com `Ctrl + A` funciona em qualquer tradução.
 
 ### 6. Navegação para monstros
 
 Para os inimigos chegarem à princesa, você precisa de dados de navegação no chão, além da colisão física.
 
-1. Adicione `NavigationRegion3D` ao mapa.
+1. Selecione `Map_Test`, aperte `Ctrl + A`, pesquise `NavigationRegion3D` e crie-o como filho.
 2. No Inspetor, crie um `NavigationMesh` para a propriedade de navegação.
 3. Configure as geometrias que serão consideradas no bake e use a ação de **Bake Navmesh** no editor.
 4. No inimigo, use `NavigationAgent3D` como filho e entregue a ele a posição-alvo da princesa.
