@@ -4,6 +4,7 @@ Estas aulas expandem o [onboarding resumido](../onboarding.md). Siga uma por dia
 
 | Dia | Aula | Resultado esperado |
 | --- | --- | --- |
+| 0 | [Como a Godot pensa](00_como_godot_pensa.md) | Entender Node, Scene, script e por que `_ready()` executa. |
 | 1 | [Sintaxe e lógica](dia_01_sintaxe_e_logica.md) | Um combate simples rodando no painel **Saída/Output**. |
 | 2 | [Coleções e dados](dia_02_colecoes_e_dados.md) | Inventário e loja funcionando. |
 | 3 | [Classes e composição](dia_03_classes_e_composicao.md) | Combatentes com habilidades e efeitos. |
@@ -12,7 +13,7 @@ Estas aulas expandem o [onboarding resumido](../onboarding.md). Siga uma por dia
 
 ## Como usar as aulas
 
-1. Leia apenas a aula do dia atual.
+1. Leia a **aula zero** antes do Dia 1; depois, leia apenas a aula do dia atual.
 2. Copie exemplos pequenos para um script de teste e altere valores para observar o resultado.
 3. Quando um trecho fizer sentido, reescreva-o sem olhar.
 4. Faça o desafio no final. Não tente deixá-lo perfeito antes de funcionar.

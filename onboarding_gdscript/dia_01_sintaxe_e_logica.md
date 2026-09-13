@@ -2,6 +2,8 @@
 
 **Meta:** escrever um programa pequeno que toma decisões, repete ações e mostra o resultado no painel **Saída/Output**.
 
+> Antes desta aula, leia [Aula 0 — Como a Godot pensa](00_como_godot_pensa.md). Ela explica o que é um Node, uma Scene e por que este script executa.
+
 ## 1. O formato de um script
 
 Um arquivo `.gd` é uma classe. Quando ele está anexado a um `Node`, `extends Node` dá acesso ao ciclo de vida desse Node. `_ready()` roda uma vez quando a cena entra em execução.
