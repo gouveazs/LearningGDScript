@@ -15,6 +15,62 @@ func _ready() -> void:
 
 Não há `main()`, chaves ou ponto e vírgula. A indentação com tabulação/espaços define os blocos; mantenha o padrão que o editor cria.
 
+## Regra estrutural essencial: fora e dentro de funções
+
+Um script tem duas áreas. Essa distinção é obrigatória e vale para todos os exercícios daqui em diante.
+
+```gdscript
+extends Node
+
+# FORA de funções: o que o objeto TEM ou declara.
+var health: int = 100
+const MAX_HEALTH: int = 100
+
+# FUNÇÃO: o que o objeto FAZ quando ela é chamada.
+func _ready() -> void:
+	print("A cena começou.")
+	if health > 0:
+		print("O personagem está vivo.")
+```
+
+| Pode ficar fora de função | Precisa ficar dentro de função |
+| --- | --- |
+| `extends` | `if`, `elif`, `else` |
+| `var` e `const` de membro | `for` e `while` |
+| `signal` e `enum` | `print()` |
+| Declaração de `func` | cálculos, atribuições e chamadas de função |
+
+O motivo: fora da função você descreve a **estrutura** da classe; dentro da função você escreve instruções que vão **executar** em um momento específico. A Godot precisa saber *quando* um loop ou um `print()` deve rodar. `_ready()` é uma dessas ocasiões: ela roda uma vez quando a cena inicia.
+
+### Exemplo inválido
+
+```gdscript
+extends Node
+
+var health: int = 30
+
+# ERRO: um loop não pode ficar solto no corpo da classe.
+while health > 0:
+	health -= 10
+```
+
+Isso gera algo como `Unexpected "while" in class body`.
+
+### Exemplo válido
+
+```gdscript
+extends Node
+
+var health: int = 30
+
+func _ready() -> void:
+	while health > 0:
+		health -= 10
+		print("Vida restante: %d" % health)
+```
+
+Quando houver dúvida, faça esta pergunta: **isto é uma característica do objeto ou uma ação?** Característica fica fora; ação fica dentro de uma função.
+
 ## 2. Variáveis, constantes e tipos
 
 `var` pode mudar. `const` não pode ser reatribuída depois de criada.
