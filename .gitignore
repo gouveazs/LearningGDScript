@@ -1,0 +1,12 @@
+# Arquivos gerados automaticamente pela Godot 4.
+# Eles guardam cache de importação, layout do editor e shaders compilados.
+.godot/
+*.translation
+
+# Arquivos do sistema operacional.
+.DS_Store
+Thumbs.db
+
+# Builds/exportações locais. O projeto-fonte continua versionado.
+/builds/
+/exports/

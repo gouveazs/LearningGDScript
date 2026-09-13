@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://c7lasj03apjok"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vn4w4"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vn4w4"]
+size = Vector3(40, 1, 40)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8s5c1"]
+
+[sub_resource type="Sky" id="Sky_hxldk"]
+sky_material = SubResource("ProceduralSkyMaterial_8s5c1")
+
+[sub_resource type="Environment" id="Environment_vn4w4"]
+background_mode = 2
+sky = SubResource("Sky_hxldk")
+ambient_light_energy = 3.1
+tonemap_mode = 2
+fog_density = 0.0
+
+[node name="Map_Teste" type="Node3D" unique_id=2039604670]
+
+[node name="Ground" type="StaticBody3D" parent="." unique_id=1882489308]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground" unique_id=523373561]
+mesh = SubResource("BoxMesh_vn4w4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground" unique_id=2002097617]
+shape = SubResource("BoxShape3D_vn4w4")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=852143000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5179148, 0)
+current = true
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=1644287155]
+transform = Transform3D(1, 0, 0, 0, -0.7617948, 0.64781874, 0, -0.64781874, -0.7617948, 0, 5.7265067, 0.012121558)
+light_energy = 1.317
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1037249089]
+environment = SubResource("Environment_vn4w4")
