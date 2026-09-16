@@ -10,6 +10,7 @@ Estas aulas expandem o [onboarding resumido](../onboarding.md). Siga uma por dia
 | 3 | [Classes e composição](dia_03_classes_e_composicao.md) | Combatentes com habilidades e efeitos. |
 | 4 | [Sinais, herança e estados](dia_04_sinais_heranca_e_estados.md) | Inimigo com IA simples e eventos. |
 | 5 | [Waves e organização](dia_05_waves_e_organizacao.md) | Simulação completa do núcleo do ABC. |
+| 6 | [Personagem 3D em terceira pessoa](dia_06_personagem_terceira_pessoa.md) | Um personagem com input, câmera, colisão e movimento na arena. |
 
 ## Como usar as aulas
 

@@ -2,6 +2,44 @@
 
 **Meta:** combinar os quatro dias anteriores numa simulação do núcleo do ABC: jogador defendendo uma princesa de ondas de inimigos.
 
+> Não comece por uma classe `GameManager` gigante. Este dia é construído em três testes pequenos: gerar inimigos, detectar fim de wave e só depois conectar derrota da princesa.
+
+## Parte A — primeiro teste: gerar uma wave sem combate
+
+Em uma Scene de teste, crie apenas uma Array de inimigos e imprima quem nasceu. Antes de pensar em dano, você precisa saber responder: “quantos inimigos existem na wave atual?”
+
+```gdscript
+extends Node
+
+var current_wave: int = 1
+var enemies_alive: int = 0
+
+func _ready() -> void:
+	start_wave()
+
+func start_wave() -> void:
+	enemies_alive = 2 + current_wave
+	print("Wave %d começou com %d inimigos." % [current_wave, enemies_alive])
+```
+
+Rode isso. Mude `current_wave` para 2 e confirme que a contagem muda. Só depois substitua o contador por objetos `Enemy` reais.
+
+## Parte B — segundo teste: a wave termina?
+
+Adicione uma função chamada sempre que um inimigo morre:
+
+```gdscript
+func on_enemy_died() -> void:
+	enemies_alive -= 1
+	print("Restam %d inimigos." % enemies_alive)
+
+	if enemies_alive == 0:
+		print("Wave concluída!")
+		current_wave += 1
+```
+
+Por enquanto, chame `on_enemy_died()` manualmente em `_ready()` para testar. A lógica de morte real será conectada por signal quando os inimigos 3D existirem.
+
 ## 1. Defina o loop antes de escrever classes
 
 O loop mínimo é:

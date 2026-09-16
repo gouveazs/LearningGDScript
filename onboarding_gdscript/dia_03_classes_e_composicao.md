@@ -2,6 +2,88 @@
 
 **Meta:** sair de um script gigante e criar objetos responsáveis por uma única parte do combate.
 
+> **Como estudar este dia:** não leia até o desafio e tente fazer tudo. Faça a Parte A, rode; depois a Parte B, rode; só então leia sobre composição. Cada arquivo abaixo tem um motivo de existir.
+
+## Parte A — por que criar uma classe?
+
+No Dia 1, todas as variáveis estavam no mesmo script. Isso funciona para uma luta de teste, mas fica ruim no momento em que existem jogador, princesa e cinco monstros: cada um precisaria de vida, dano e funções repetidas.
+
+Uma classe é um molde. `Combatant` não é um personagem específico; é a regra comum que cria personagens com nome, vida e ataque diferentes.
+
+```text
+Combatant (molde)
+├── nome
+├── vida
+├── ataque
+├── take_damage()
+└── is_alive()
+
+Gouvea = Combatant.new("Gouvea", 100, 20)
+Esqueleto = Combatant.new("Esqueleto", 40, 8)
+```
+
+## Parte B — crie a primeira classe, sem pular arquivo
+
+Crie a pasta `dias/Dia3/`. Dentro dela, crie **dois** scripts. O primeiro não será anexado a uma Scene.
+
+### Arquivo 1: `combatant.gd`
+
+```gdscript
+class_name Combatant
+extends RefCounted
+
+# Cada objeto Combatant criado terá sua própria cópia destas variáveis.
+var display_name: String
+var max_health: int
+var health: int
+var attack: int
+
+func _init(new_name: String, new_max_health: int, new_attack: int) -> void:
+	# _init é o construtor: roda ao chamar Combatant.new(...).
+	display_name = new_name
+	max_health = new_max_health
+	health = max_health
+	attack = new_attack
+
+func take_damage(amount: int) -> void:
+	health = max(health - amount, 0)
+
+func is_alive() -> bool:
+	return health > 0
+```
+
+`RefCounted` significa “objeto de lógica”. Ele não aparece no mapa, não tem posição e não precisa de `_ready()`. A Godot o libera quando ninguém mais mantém referência a ele.
+
+### Arquivo 2: `dia_03_test.gd`
+
+Crie uma Scene com `Node` raiz, anexe este script e execute com `F6`:
+
+```gdscript
+extends Node
+
+func _ready() -> void:
+	var player: Combatant = Combatant.new("Gouvea", 100, 20)
+	var skeleton: Combatant = Combatant.new("Esqueleto", 40, 8)
+
+	skeleton.take_damage(player.attack)
+	print("%s ficou com %d de vida." % [skeleton.display_name, skeleton.health])
+	print("Está vivo? %s" % skeleton.is_alive())
+```
+
+Se o editor reclamar que não conhece `Combatant`, salve `combatant.gd`, espere a Godot terminar de analisar e confira se `class_name Combatant` está na primeira linha útil do arquivo.
+
+## Parte C — o que você acabou de fazer?
+
+| Trecho | Significado |
+| --- | --- |
+| `class_name Combatant` | Dá um nome global à classe para usar `Combatant.new()`. |
+| `extends RefCounted` | Diz que é objeto de lógica, não Node de cena. |
+| `_init(...)` | Recebe os dados de cada instância criada. |
+| `player` e `skeleton` | Dois objetos diferentes feitos a partir do mesmo molde. |
+| `skeleton.take_damage(...)` | Chama função naquele objeto específico. |
+
+Altere a vida/ataque, rode de novo e confirme que cada objeto guarda valores próprios antes de seguir.
+
 ## 1. Quando criar uma classe?
 
 Crie uma classe quando um conceito tem dados e comportamento próprios. Para o ABC:
