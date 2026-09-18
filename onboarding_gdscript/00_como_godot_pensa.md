@@ -148,7 +148,7 @@ func take_damage(amount: int) -> void:
 
 ## Scripts que não são anexados a Nodes
 
-Nem todo `.gd` controla uma cena visual. Mais adiante, você também poderá criar classes de lógica:
+Nem todo `.gd` controla uma cena visual. No Dia 3, você criará classes de lógica:
 
 ```gdscript
 class_name StatusEffect
