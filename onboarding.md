@@ -201,7 +201,7 @@ A próxima etapa será transportar a lógica para o fluxo real da engine:
 
 1. Projeto, cenas, Nodes e hierarquia.
 2. Ciclo de vida: `_ready()`, `_process()` e `_physics_process()`.
-3. Input, movimento e colisões.
+3. Input, mouse, movimento, colisões e câmeras em primeira/terceira pessoa.
 4. Instanciar inimigos e controlar waves em cena.
 5. UI da vida da princesa, HUD e telas de fim de jogo.
 6. Animações, áudio, partículas e polimento.
