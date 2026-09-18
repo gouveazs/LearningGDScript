@@ -104,33 +104,6 @@ Faça um inventário cujos itens tenham nome, preço, tipo e quantidade. O jogad
 
 ---
 
-## Dia 3 — Classes, objetos e composição
-
-### Aprenda
-
-- Arquivos de classe e `class_name`
-- `extends RefCounted` para classes de lógica sem representação visual
-- Construtor `_init()`
-- Atributos, métodos e métodos `static`
-- Getters e setters
-- Referência versus cópia em `Array` e `Dictionary`
-- Composição: objetos pequenos colaborando em vez de uma classe gigante
-
-### Desafio: sistema de combatentes
-
-Crie as classes `Combatente`, `Habilidade` e `EfeitoDeStatus`. Um combatente possui habilidades e pode receber efeitos, como queimadura, lentidão e escudo. Cada efeito dura uma quantidade definida de turnos e some corretamente.
-
-**Regras extras**
-
-- `Habilidade` calcula ou descreve seu próprio efeito; não transforme `Combatente` numa classe que sabe tudo.
-- `EfeitoDeStatus` deve controlar sua duração.
-- Um combatente não pode usar uma habilidade inexistente.
-- Mostre a lista de efeitos ativos a cada turno.
-
-**Concluído quando:** um efeito é aplicado, afeta o combate pelo número certo de turnos e expira sem deixar modificadores presos.
-
----
-
 ## Dia 4 — Herança, sinais e estados
 
 ### Aprenda
